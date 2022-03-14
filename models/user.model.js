@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: 'Sala',
     },
-    password: { type: Number, required: true, unique: true },
+    password: { type: String, required: true },
 });
 
 userSchema.set('toJSON', {

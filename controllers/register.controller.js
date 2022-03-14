@@ -4,8 +4,8 @@ import { createError } from '../services/errors.js';
 
 export const userRegister = async (req, resp, next) => {
     try {
-        const encryptedPasswd = bcrypt.hashSync(req.body.password);
-        const userData = { ...req.body, password: encryptedPasswd };
+        const encryptedPassword = bcrypt.hashSync(req.body.password);
+        const userData = { ...req.body, password: encryptedPassword };
         const newUser = await User.create(userData);
         resp.json(newUser);
     } catch (error) {
