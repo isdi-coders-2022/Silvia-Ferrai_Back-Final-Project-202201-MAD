@@ -2,6 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
+import userRouter from './routes/user.routes.js';
+import { mongoConnect } from './services/db.js';
 
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -9,12 +11,14 @@ dotenv.config();
 export const app = express();
 const port = process.env.PORT;
 
+mongoConnect();
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 app.use(helmet());
 
-// app.use('/login', loginRouter);
+app.use('/user', userRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, resp, next) => {
