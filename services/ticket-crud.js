@@ -1,29 +1,22 @@
 import { products } from '../data/products-data.js';
 import { Ticket } from '../models/ticket.model.js';
-import { createError } from '../services/errors.js';
+import { createError } from './errors.js';
 
 export function getAllProducts() {
     return products;
 }
 
-export async function createTicket(req, res, next) {
-    try {
-        const ticketData = { ...req.body };
-        const newTicket = await Ticket.create(ticketData);
-        res.json(newTicket);
-    } catch (error) {
-        next(createError(error));
-    }
+export async function createTicket(body, Ticket) {
+    const newTicket = new Ticket(body);
+    return await newTicket.save();
 }
 
-export async function getAllTickets(req, res, next) {
-    try {
-        const ticketsData = { ...req.body, Ticket };
-        const tickets = await Ticket.find(ticketsData);
-        res.json(tickets);
-    } catch (error) {
-        next(createError(error));
-    }
+export async function getAllTickets(Ticket) {
+    return await Ticket.find({});
+}
+
+export async function getTicket(id, Ticket) {
+    return await Ticket.findById(id);
 }
 
 export async function insertProductIntoTicket(ticketId, productId) {
