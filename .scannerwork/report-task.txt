@@ -2,5 +2,5 @@ projectKey=eccotpv
 serverUrl=http://localhost:9000
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:9000/dashboard?id=eccotpv
-ceTaskId=AX-JgqpbMuGmQGn4q87v
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-JgqpbMuGmQGn4q87v
+ceTaskId=AX-NUJwgMuGmQGn4q882
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-NUJwgMuGmQGn4q882
