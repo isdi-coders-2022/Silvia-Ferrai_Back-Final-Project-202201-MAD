@@ -1,6 +1,5 @@
 import { products } from '../data/products-data.js';
 import { Ticket } from '../models/ticket.model.js';
-import { createError } from './errors.js';
 
 export function getAllProducts() {
     return products;

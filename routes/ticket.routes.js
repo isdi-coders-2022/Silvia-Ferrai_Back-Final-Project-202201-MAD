@@ -1,5 +1,6 @@
 import express from 'express';
-
+import { loginRequired } from '../middlewares/loginRequired.js';
+import { waiterRequired } from '../middlewares/waiterRequired.js';
 import {
     addAndUpdateProduct,
     addNewTicket,
@@ -7,12 +8,13 @@ import {
     getAllTickets,
     getTicket,
 } from '../controllers/ticket.controller.js';
+
 const router = express.Router();
 
-router.post('/', addNewTicket);
-router.patch('/:id', addAndUpdateProduct);
-router.delete('/:id', deleteProduct);
-router.get('/', getAllTickets);
-router.get('/:id', getTicket);
+router.post('/', loginRequired, addNewTicket);
+router.patch('/:id', loginRequired, addAndUpdateProduct);
+router.delete('/:id', loginRequired, deleteProduct);
+router.get('/', loginRequired, getAllTickets);
+router.get('/:id', loginRequired, waiterRequired, getTicket);
 
 export default router;

@@ -19,7 +19,7 @@ export const userLogin = async (req, resp, next) => {
         } else {
             const token = createToken({
                 username: userFound.username,
-                id: userFound.id,
+                id: userFound._id.toString(),
             });
             resp.json({
                 token,
