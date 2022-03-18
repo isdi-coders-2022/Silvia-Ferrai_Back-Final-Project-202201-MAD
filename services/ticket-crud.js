@@ -6,8 +6,12 @@ export function getAllProducts() {
 }
 
 export async function createTicket(body, Ticket) {
-    const newTicket = new Ticket(body);
-    return await newTicket.save();
+    const newTicket = await Ticket.create(body);
+    return newTicket;
+}
+
+export async function deleteTicket(id, Ticket) {
+    return await Ticket.findByIdAndDelete(id);
 }
 
 export async function getAllTickets(Ticket) {

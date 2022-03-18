@@ -5,15 +5,22 @@ import {
     addAndUpdateProduct,
     addNewTicket,
     deleteProduct,
+    deleteTicket,
     getAllTickets,
     getTicket,
 } from '../controllers/ticket.controller.js';
 
 const router = express.Router();
 
-router.post('/', loginRequired, addNewTicket);
-router.patch('/:id', loginRequired, addAndUpdateProduct);
-router.delete('/:id', loginRequired, deleteProduct);
+router.post('/', loginRequired, waiterRequired, addNewTicket);
+router.delete('/:id', loginRequired, waiterRequired, deleteTicket);
+router.patch(
+    '/product/:id',
+    loginRequired,
+    waiterRequired,
+    addAndUpdateProduct
+);
+router.delete('/product/:id', loginRequired, waiterRequired, deleteProduct);
 router.get('/', loginRequired, getAllTickets);
 router.get('/:id', loginRequired, waiterRequired, getTicket);
 

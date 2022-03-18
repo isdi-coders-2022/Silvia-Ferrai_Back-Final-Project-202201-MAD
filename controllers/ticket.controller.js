@@ -28,6 +28,15 @@ export const getTicket = async (req, res, next) => {
     }
 };
 
+export const deleteTicket = async (req, res, next) => {
+    try {
+        const resp = await crud.deleteTicket(req.params.id, Ticket);
+        res.json(resp);
+    } catch (error) {
+        next(createError(error));
+    }
+};
+
 export const addAndUpdateProduct = async (req, res, next) => {
     try {
         const resp = await crud.insertProductIntoTicket(
@@ -52,7 +61,11 @@ export const deleteProduct = async (req, res, next) => {
     }
 };
 
-export const getProducts = async (req, res) => {
-    const resp = await crud.getAllProducts();
-    res.json(resp);
+export const getProducts = async (req, res, next) => {
+    try {
+        const resp = await crud.getAllProducts();
+        res.json(resp);
+    } catch (error) {
+        next(createError(error));
+    }
 };
