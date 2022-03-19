@@ -18,7 +18,7 @@ describe('Given the test database with a initial Tickets collection', () => {
     beforeEach(async () => {
         await installUsers(data.users);
         const mockUsers = await User.find({});
-        firstUserId = mockUsers[0].id;
+        // firstUserId = mockUsers[0].id;
 
         authToken = createToken({
             name: mockUsers[0].name,
