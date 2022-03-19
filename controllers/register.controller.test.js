@@ -13,7 +13,6 @@ describe('Given the register controller', () => {
     let next;
 
     beforeEach(() => {
-        // User.find.mockReturnValue(User);
         req = { params: {} };
         res = {};
         res.send = jest.fn().mockReturnValue(res);
@@ -31,11 +30,9 @@ describe('Given the register controller', () => {
                     password: 'encrypted1234',
                     id: 5,
                 });
-                // createToken.mockReturnValue('mock_token');
 
                 await controller.userRegister(req, res, next);
                 expect(res.json).toHaveBeenCalledWith({
-                    // token: 'mock_token',
                     username: 'Pepe',
                     password: 'encrypted1234',
                     id: 5,

@@ -12,6 +12,7 @@ export const userLogin = async (req, resp, next) => {
         const userFound = await User.findOne({
             username: user.username,
         });
+
         if (!userFound) {
             next(loginError);
         } else if (!bcrypt.compareSync(user.password, userFound.password)) {

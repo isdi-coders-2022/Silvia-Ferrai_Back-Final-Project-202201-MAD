@@ -9,6 +9,6 @@ export const userRegister = async (req, resp, next) => {
         const newUser = await User.create(userData);
         resp.json(newUser);
     } catch (error) {
-        next(createError(error));
+        next(createError(error, 500));
     }
 };

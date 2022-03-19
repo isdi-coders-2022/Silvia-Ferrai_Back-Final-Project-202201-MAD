@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 import userRouter from './routes/user.routes.js';
+import ticketRouter from './routes/ticket.routes.js';
 import { mongoConnect } from './services/db.js';
 
 import * as dotenv from 'dotenv';
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/user', userRouter);
+app.use('/ticket', ticketRouter);
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, resp, next) => {

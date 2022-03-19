@@ -63,17 +63,18 @@ describe('Given the login controller', () => {
         describe('And the user name and passwd are ok', () => {
             test('Then call send', async () => {
                 const user = {
-                    username: 'Pepe',
-                    id: '1',
+                    username: 'Ste',
+                    password: '1111',
+                    id: '234',
                 };
                 await User.findOne.mockResolvedValue(user);
                 bcrypt.compareSync.mockReturnValue(true);
                 createToken.mockReturnValue('mock_token');
                 await controller.userLogin(req, res, next);
                 expect(res.json).toHaveBeenCalledWith({
-                    username: 'Pepe',
-                    id: '1',
                     token: 'mock_token',
+                    username: 'Ste',
+                    id: '234',
                 });
             });
         });
