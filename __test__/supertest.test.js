@@ -9,7 +9,7 @@ import { installTicket, installUsers } from '../services/db.js';
 describe('Given the test database with a initial Tickets collection', () => {
     let authToken;
     let firstTicketId;
-    let firstUserId;
+    // let firstUserId;
 
     beforeAll(() => {
         server.close();
