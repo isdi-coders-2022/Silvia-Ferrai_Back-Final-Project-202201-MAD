@@ -22,7 +22,6 @@ export const userLogin = async (req, resp, next) => {
                 username: userFound.username,
                 id: userFound.id,
             });
-            console.log(token);
             resp.json({
                 token,
                 username: userFound.username,

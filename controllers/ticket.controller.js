@@ -24,7 +24,7 @@ export const getTicket = async (req, res, next) => {
         const resp = await crud.getTicket(req.params.id, Ticket);
         res.json(resp);
     } catch (error) {
-        next(createError(error));
+        next(createError(error, 401));
     }
 };
 
@@ -57,7 +57,7 @@ export const deleteProduct = async (req, res, next) => {
         );
         res.json(resp);
     } catch (error) {
-        next(createError(error));
+        next(createError(error, 401));
     }
 };
 
