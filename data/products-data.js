@@ -77,6 +77,7 @@ export const products = [
         type: 'postre',
         price: 4.5,
     },
+
     {
         id: 14,
         item: 'Espresso',
@@ -172,5 +173,17 @@ export const products = [
         item: 'Alhambra 0.33',
         type: 'cerveza',
         price: 4.0,
+    },
+    {
+        id: 30,
+        item: 'Flan casero',
+        type: 'postre',
+        price: 4,
+    },
+    {
+        id: 31,
+        item: 'Cappuccino',
+        type: 'café',
+        price: 2.1,
     },
 ];

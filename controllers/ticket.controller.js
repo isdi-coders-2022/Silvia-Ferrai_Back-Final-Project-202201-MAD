@@ -50,11 +50,14 @@ export const addAndUpdateProduct = async (req, res, next) => {
 };
 
 export const deleteProduct = async (req, res, next) => {
+    console.log(req.params);
+
     try {
         const resp = await crud.deleteProductFromTicket(
             req.params.id,
-            req.body.id
+            req.params.productId
         );
+
         res.json(resp);
     } catch (error) {
         next(createError(error, 401));
