@@ -13,8 +13,11 @@ import {
 
 const router = express.Router();
 
-router.get('/product', getProducts);
+router.get('/products', getProducts);
+
 router.post('/', loginRequired, waiterRequired, addNewTicket);
+router.get('/', getAllTickets);
+router.get('/:id', loginRequired, waiterRequired, getTicket);
 router.delete('/:id', loginRequired, waiterRequired, deleteTicket);
 router.patch(
     '/product/:id',
@@ -22,8 +25,11 @@ router.patch(
     waiterRequired,
     addAndUpdateProduct
 );
-router.delete('/product/:id', loginRequired, waiterRequired, deleteProduct);
-router.get('/', loginRequired, getAllTickets);
-router.get('/:id', loginRequired, waiterRequired, getTicket);
+router.delete(
+    '/product/:id/id/:productId',
+    loginRequired,
+    waiterRequired,
+    deleteProduct
+);
 
 export default router;

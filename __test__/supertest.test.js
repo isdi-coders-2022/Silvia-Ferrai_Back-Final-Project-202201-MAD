@@ -40,7 +40,7 @@ describe('Given the test database with a initial Tickets collection', () => {
     describe('When the request is GET / products ', function () {
         describe('no authentication', () => {
             test('responds with json & status 200', async function () {
-                const response = await request(app).get('/ticket/product');
+                const response = await request(app).get('/ticket/products');
                 expect(response.statusCode).toBe(200);
             });
         });
@@ -58,13 +58,6 @@ describe('Given the test database with a initial Tickets collection', () => {
                 expect(response.statusCode).toBe(200);
             });
         });
-        // describe('And user is not valid', () => {
-        //     test('responds with json & status 500', async function () {
-        //         const user = {};
-        //         const response = await request(app).post('/user').send(user);
-        //         expect(response.statusCode).toBe(500);
-        //     });
-        // });
     });
     describe('When the request is POST /login ', function () {
         describe('When user is valid', () => {
@@ -78,26 +71,7 @@ describe('Given the test database with a initial Tickets collection', () => {
             });
         });
     });
-    // describe('When user is not valid', () => {
-    //     test('responds with json & status 401', async function () {
-    //         const user = { username: 'Marta', password: '12345' };
-    //         const response = await request(app)
-    //             .post('/user/login')
-    //             .set('Accept', 'application/json')
-    //             .send(user);
-    //         expect(response.statusCode).toBe(401);
-    //     });
-    // });
-    // describe('When password is not valid', () => {
-    //     test('responds with json & status 401', async function () {
-    //         const user = { username: 'Sandrino', password: '3465' };
-    //         const response = await request(app)
-    //             .post('/user/login')
-    //             .set('Accept', 'application/json')
-    //             .send(user);
-    //         expect(response.statusCode).toBe(401);
-    //     });
-    // });
+
     describe('When the request is GET / tickets ', function () {
         describe('with authentication', () => {
             test('responds with json & status 200', async function () {
@@ -120,12 +94,6 @@ describe('Given the test database with a initial Tickets collection', () => {
                 expect(response.statusCode).toBe(200);
             });
         });
-        // describe('without authentication', function () {
-        //     test('responds with json & status 401', async function () {
-        //         const response = await request(app).get('/ticket');
-        //         expect(response.statusCode).toBe(401);
-        //     });
-        // });
     });
 
     describe('When the request is POST /ticket/ (no protected)', () => {
@@ -159,14 +127,6 @@ describe('Given the test database with a initial Tickets collection', () => {
                     .expect(200);
             });
         });
-        // describe('without authentication', () => {
-        //     test('responds with status 401', async () => {
-        //         // eslint-disable-next-line no-unused-vars
-        //         const response = await request(app)
-        //             .patch('/ticket/product/' + firstTicketId)
-        //             .expect(401);
-        //     });
-        // });
     });
 
     describe('DELETE /ticket', function () {

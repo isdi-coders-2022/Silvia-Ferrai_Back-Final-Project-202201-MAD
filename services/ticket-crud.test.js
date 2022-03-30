@@ -100,31 +100,4 @@ describe('Given a connection with a MongoDB', () => {
             expect(Ticket.findByIdAndUpdate).toHaveBeenCalled();
         });
     });
-
-    describe('and delete a product into the ticket', () => {
-        beforeEach(async () => {
-            await Ticket.findById.mockResolvedValue({
-                id: '1',
-                uds: '1',
-                items: [
-                    {
-                        article: {
-                            id: '2',
-                        },
-                    },
-                ],
-            });
-        });
-        test('should decrement the uds', async () => {
-            const productId = '2';
-            await crud.deleteProductFromTicket('1', productId);
-            expect(Ticket.findById).toHaveBeenCalled();
-        });
-        test('should remove a article', async () => {
-            const productId = '3';
-            await crud.deleteProductFromTicket('1', productId);
-            expect(Ticket.updateOne).toHaveBeenCalled();
-            expect(Ticket.findByIdAndUpdate).toHaveBeenCalled();
-        });
-    });
 });
