@@ -5,8 +5,6 @@ import { Ticket } from '../models/ticket.model.js';
 import { User } from '../models/user.model.js';
 
 export async function mongoConnect() {
-    const user = process.env.DBUSER;
-    const password = process.env.DBPASSWD;
     let dbName;
     if (process.env.NODE_ENV === 'test') {
         dbName = process.env.TESTDBNAME;
@@ -14,9 +12,9 @@ export async function mongoConnect() {
         dbName = process.env.DBNAME;
     }
     console.log('Connecting to', dbName);
-    const uri = `mongodb+srv://${user}:${password}@cluster0.mrify.mongodb.net/${dbName}`;
+    // const uri = `mongodb+srv://${user}:${password}@cluster0.mrify.mongodb.net/${dbName}`;
 
-    const mongooseConnect = await mongoose.connect(uri);
+    const mongooseConnect = await mongoose.connect(process.env.DATABASE_URL);
     return mongooseConnect;
 }
 export async function mongoDisconnect() {
