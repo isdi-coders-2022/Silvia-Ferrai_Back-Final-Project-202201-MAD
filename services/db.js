@@ -14,7 +14,7 @@ export async function mongoConnect() {
         dbName = process.env.DBNAME;
     }
     console.log('Connecting to', dbName);
-    const uri = `mongodb+srv://${user}:${password}@cluster0.mrify.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+    const uri = `mongodb+srv://${user}:${password}@cluster0.mrify.mongodb.net/${dbName}`;
     const mongooseConnect = await mongoose.connect(uri);
     return mongooseConnect;
 }

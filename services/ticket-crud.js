@@ -81,14 +81,6 @@ export async function deleteProductFromTicket(ticketId, productId) {
 
         ticketToUpdate.save();
 
-        // await Ticket.updateOne(
-        //     { 'items.article.id': productId, _id: ticketId },
-        //     {
-        //         $inc: {
-        //             'items.$.uds': -1,
-        //         },
-        //     }
-        // );
         console.log(await Ticket.findById(ticketId));
         return await Ticket.findById(ticketId);
     }
